@@ -1,9 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
-const FAQ = () => {
+interface FAQProps {
+  showViewAll?: boolean
+}
+
+const FAQ = ({ showViewAll = true }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const faqs = [
@@ -97,12 +102,14 @@ const FAQ = () => {
               Our customer support team is here to help 24/7 via WhatsApp and email.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">
+              <Link href="/contact" className="btn-primary">
                 Contact Support
-              </button>
-              <button className="btn-secondary">
-                View All FAQs
-              </button>
+              </Link>
+              {showViewAll && (
+                <Link href="/faq" className="btn-secondary">
+                  View All FAQs
+                </Link>
+              )}
             </div>
           </div>
         </div>

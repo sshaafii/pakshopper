@@ -96,9 +96,6 @@ const Navbar = () => {
               </button>
             </div>
             
-            <button className="btn-primary">
-              Start Shopping
-            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -175,11 +172,6 @@ const Navbar = () => {
                 </button>
               </div>
               
-              <div className="px-4">
-                <button className="btn-primary w-full">
-                  Start Shopping
-                </button>
-              </div>
             </div>
           </div>
         )}

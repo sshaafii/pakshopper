@@ -6,12 +6,12 @@ const Footer = () => {
   const footerLinks = {
     company: [
       { name: 'About Us', href: '#' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#pricing' },
+      { name: 'How It Works', href: '/#how-it-works' },
+      { name: 'Features', href: '/#features' },
+      { name: 'Pricing', href: '/#pricing' },
     ],
     support: [
-      { name: 'FAQ', href: '#faq' },
+      { name: 'FAQ', href: '/faq' },
       { name: 'Contact Support', href: '#' },
       { name: 'Shipping Info', href: '#' },
       { name: 'Returns Policy', href: '#' },

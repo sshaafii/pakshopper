@@ -91,9 +91,9 @@ const Navbar = () => {
                 <LogIn className="w-4 h-4" />
                 <span>Sign In</span>
               </button>
-              <button className="btn-primary text-sm py-2 px-4">
+              <Link href="/signup" className="btn-primary text-sm py-2 px-4">
                 Sign Up
-              </button>
+              </Link>
             </div>
             
           </div>
@@ -167,9 +167,13 @@ const Navbar = () => {
                   <LogIn className="w-4 h-4" />
                   <span>Sign In</span>
                 </button>
-                <button className="w-full btn-primary">
+                <Link
+                  href="/signup"
+                  className="w-full btn-primary flex items-center justify-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Sign Up
-                </button>
+                </Link>
               </div>
               
             </div>

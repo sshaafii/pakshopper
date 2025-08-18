@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Features', href: '#features' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'FAQ', href: '/faq' },
   ]
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -47,13 +47,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-gray-700 hover:text-primary-500 font-medium transition-colors duration-200"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             
             {/* Product Link Input */}
@@ -96,9 +96,6 @@ const Navbar = () => {
               </button>
             </div>
             
-            <button className="btn-primary">
-              Start Shopping
-            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -121,14 +118,14 @@ const Navbar = () => {
           <div className="md:hidden bg-white border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="text-gray-700 hover:text-primary-500 font-medium px-4 py-2 transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               
               {/* Mobile Product Link Input */}
@@ -175,11 +172,6 @@ const Navbar = () => {
                 </button>
               </div>
               
-              <div className="px-4">
-                <button className="btn-primary w-full">
-                  Start Shopping
-                </button>
-              </div>
             </div>
           </div>
         )}

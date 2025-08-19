@@ -80,10 +80,20 @@ const SignUpPage = () => {
     country.trim().length > 0 &&
     termsAccepted
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!isFormValid) return
-    alert('Account created (demo).')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: fullName, email, password }),
+    })
+    if (res.ok) {
+      alert('Account created. Please log in.')
+    } else {
+      const data = await res.json().catch(() => ({}))
+      alert(data.detail || 'Signup failed')
+    }
   }
 
   return (

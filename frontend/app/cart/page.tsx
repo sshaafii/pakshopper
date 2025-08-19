@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowLeft, Trash2, Edit3, Package, ShoppingBag, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import { useCart } from '../../contexts/CartContext'
 import type { CartItem } from '../../contexts/CartContext'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 // Utility function for formatting dates
 const formatDate = (date: Date) => {
@@ -21,6 +23,28 @@ const CartPage = () => {
   const { state, removeItem, clearCart, setCurrency } = useCart()
   const [editingItem, setEditingItem] = useState<string | null>(null)
   const [showClearConfirm, setShowClearConfirm] = useState(false)
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/login')
+    }
+  }, [status, router])
+
+  if (status !== 'authenticated') {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <main className="pt-16">
+          <div className="container-custom py-16 text-center">
+            <p className="text-gray-600">Loading...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    )
+  }
 
   const currencies = [
     { code: 'USD', symbol: '$', rate: 0.0036 },

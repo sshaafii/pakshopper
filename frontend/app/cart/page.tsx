@@ -155,9 +155,9 @@ const CartPage = () => {
                   </div>
                   
                   <div className="pt-4">
-                    <button className="w-full btn-primary text-lg py-4">
+                    <Link href="/payment" className="w-full btn-primary text-lg py-4 block text-center">
                       Proceed to Checkout
-                    </button>
+                    </Link>
                   </div>
                   
                   <div className="text-center">

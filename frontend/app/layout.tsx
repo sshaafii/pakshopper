@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { CartProvider } from '../contexts/CartContext'
+import { SessionProvider } from 'next-auth/react'
 
 export const metadata: Metadata = {
   title: 'PakShopper - Your Trusted Pakistani Fashion Agent',
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <CartProvider>
-          {children}
-        </CartProvider>
+        <SessionProvider>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </SessionProvider>
       </body>
     </html>
   )
